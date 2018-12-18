@@ -3,6 +3,7 @@ package com.example.alejandro.postit.presentation.ui.activities
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.example.alejandro.postit.R
 import com.example.alejandro.postit.domain.model.Comment
 import com.example.alejandro.postit.domain.model.Post
@@ -12,6 +13,7 @@ import com.example.alejandro.postit.presentation.presenter.PostCommentPresenter
 import com.example.alejandro.postit.presentation.presenter.impl.GetCommentsPresenterImpl
 import com.example.alejandro.postit.presentation.presenter.impl.PostCommentPresenterImpl
 import com.example.alejandro.postit.presentation.ui.adapters.CommentListAdapter
+import com.example.alejandro.postit.utils.LoggerUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_post_detail.*
@@ -78,7 +80,9 @@ class PostDetailActivity : BaseActivity(), GetCommentsPresenter.View, PostCommen
     }
 
     private fun configErrorMessage(){
-        //TODO show error message and retry function
+        detail_error.setOnClickListener {
+            loadData()
+        }
     }
 
     private fun configListeners(){
@@ -86,6 +90,16 @@ class PostDetailActivity : BaseActivity(), GetCommentsPresenter.View, PostCommen
             val newComment = Comment(author = "Alejandro", comment = new_comment_input.text.toString(), postId = post!!.id)
             commentList!!.add(newComment)
             postCommentsPresenter!!.postComment(newComment)
+        }
+    }
+
+    private fun displayContent(commentsObtained: Boolean){
+        if (commentsObtained){
+            comments_list.visibility = View.VISIBLE
+            detail_error.visibility = View.GONE
+        } else {
+            comments_list.visibility = View.GONE
+            detail_error.visibility = View.VISIBLE
         }
     }
 
@@ -97,6 +111,7 @@ class PostDetailActivity : BaseActivity(), GetCommentsPresenter.View, PostCommen
 
 
     override fun onCommentsRetrieved(retrievedComments: List<Comment>) {
+        displayContent(true)
         for (comment in retrievedComments){
             if (!this.commentList!!.contains(comment)){
                 this.commentList!!.add(comment)
@@ -107,7 +122,8 @@ class PostDetailActivity : BaseActivity(), GetCommentsPresenter.View, PostCommen
     }
 
     override fun onCommentsRetrievingError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        displayContent(false)
+        LoggerUtils.logError("PostDetailActivity", "errorCode", Exception())
     }
 
     override fun onCommentPosted() {
@@ -119,7 +135,7 @@ class PostDetailActivity : BaseActivity(), GetCommentsPresenter.View, PostCommen
     }
 
     override fun onPostingCommentError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // XXX Do nothing since the API just fakes the post
     }
 
 }

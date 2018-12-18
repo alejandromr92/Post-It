@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.example.alejandro.postit.R
 import com.example.alejandro.postit.domain.model.Post
 import com.example.alejandro.postit.presentation.presenter.GetPostsPresenter
 import com.example.alejandro.postit.presentation.presenter.impl.GetPostsPresenterImpl
 import com.example.alejandro.postit.presentation.ui.adapters.PostListAdapter
+import com.example.alejandro.postit.utils.LoggerUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
@@ -58,7 +60,19 @@ class PostListActivity: BaseActivity(), GetPostsPresenter.View {
     }
 
     private fun configErrorMessage(){
-        //TODO show error message and retry function
+        list_error.setOnClickListener {
+            loadData()
+        }
+    }
+
+    private fun displayContent(postsObtained: Boolean){
+        if (postsObtained){
+            posts_list.visibility = View.VISIBLE
+            list_error.visibility = View.GONE
+        } else {
+            posts_list.visibility = View.GONE
+            list_error.visibility = View.VISIBLE
+        }
     }
 
     override fun loadData() {
@@ -68,6 +82,7 @@ class PostListActivity: BaseActivity(), GetPostsPresenter.View {
     }
 
     override fun onPostsRetrieved(retrievedPosts: List<Post>) {
+        displayContent(true)
         for (post in retrievedPosts){
             if (!this.postList!!.contains(post)){
                 this.postList!!.add(post)
@@ -78,6 +93,7 @@ class PostListActivity: BaseActivity(), GetPostsPresenter.View {
     }
 
     override fun onPostsRetrievingError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        displayContent(false)
+        LoggerUtils.logError("PostListActivity", "errorCode", Exception())
     }
 }
