@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:padding="15dp"
+>
+
+    <TextView
+            android:id="@+id/comment_item_author"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:text="Autor"
+            android:textStyle="bold"
+    />
+
+
+    <TextView
+            android:id="@+id/comment_item_comment"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toBottomOf="@id/comment_item_author"
+
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit nisl nec vulputate vestibulum. Pellentesque luctus finibus purus. Praesent ut ante luctus, ullamcorper felis ut, bibendum justo. Praesent facilisis nunc lacinia laoreet mattis. Integer nulla nibh, cursus non vehicula at, consectetur tincidunt nunc. Vestibulum fringilla, leo ut tempus iaculis, metus ante gravida libero, sit amet condimentum velit arcu at eros. Proin nec turpis sed enim consectetur accumsan. Integer posuere enim ut dapibus consequat. Nunc nec justo arcu. Cras tristique vehicula accumsan. Phasellus aliquam efficitur magna sed consequat. Aliquam pharetra lacus nec eleifend dapibus. Aliquam auctor, libero ut fermentum lacinia, est sem facilisis dolor, id molestie velit sapien nec sem. Phasellus quis aliquam est. "
+    />
+
+</android.support.constraint.ConstraintLayout>

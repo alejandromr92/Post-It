@@ -1,6 +1,26 @@
 package com.example.alejandro.postit.network.service
 
+import com.example.alejandro.postit.network.Constants
+import com.example.alejandro.postit.network.model.dto.CommentDto
+import com.example.alejandro.postit.network.model.dto.PostDto
+import io.reactivex.Single
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Query
+
 interface JSONPlaceholderService {
 
-    //TODO add services here
+    @GET(Endpoints.POSTS)
+    fun getPosts(
+    ): Single<List<PostDto>>
+
+    @GET(Endpoints.COMMENTS)
+    fun getComments(
+        @Query(Constants.POST_ID) postId: Int
+    ): Single<List<CommentDto>>
+
+    @POST(Endpoints.COMMENTS)
+    fun postComment(
+        comment: CommentDto
+    ): Single<Unit>
 }
