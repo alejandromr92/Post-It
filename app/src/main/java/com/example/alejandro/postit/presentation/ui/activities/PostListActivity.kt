@@ -3,7 +3,6 @@ package com.example.alejandro.postit.presentation.ui.activities
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.example.alejandro.postit.R
 import com.example.alejandro.postit.domain.model.Post
@@ -14,7 +13,7 @@ import com.example.alejandro.postit.utils.LoggerUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
-import java.util.ArrayList
+import java.util.*
 
 class PostListActivity: BaseActivity(), GetPostsPresenter.View {
     private var getPostsPresenter: GetPostsPresenter? = null

@@ -4,7 +4,6 @@ import com.example.alejandro.postit.domain.interactor.PostCommentInteractor
 import com.example.alejandro.postit.domain.model.Comment
 import com.example.alejandro.postit.network.api.impl.JSONPlaceholderAPIImpl
 import com.example.alejandro.postit.network.model.converter.CommentMapper
-import com.example.alejandro.postit.network.model.dto.CommentDto
 import io.reactivex.Scheduler
 import io.reactivex.disposables.Disposables
 
