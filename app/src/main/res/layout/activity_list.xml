@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:padding="10dp"
+        android:padding="@dimen/margin_items"
     >
 
     <android.support.v7.widget.RecyclerView
@@ -23,7 +23,7 @@
             android:text="@string/error_message"
 
             android:gravity="center"
-            android:padding="30dp"
+            android:padding="@dimen/error_padding"
 
             android:visibility="gone"
     />

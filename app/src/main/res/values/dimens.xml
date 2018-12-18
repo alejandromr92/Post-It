@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Holders-->
+    <dimen name="item_padding">15dp</dimen>
+
+    <!-- Activities -->
+    <dimen name="margin_items">10dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="error_padding">30dp</dimen>
+    <dimen name="error_padding_large">50dp</dimen>
+</resources>

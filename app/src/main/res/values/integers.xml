@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="post_content_max_length">80</integer>
+    <fraction name="button_send_percentage_width">0.3</fraction>
+</resources>

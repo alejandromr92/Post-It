@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:padding="10dp"
+            android:padding="@dimen/margin_items"
 
             android:focusableInTouchMode="true"
         >
@@ -28,7 +28,7 @@
 
                 app:layout_constraintTop_toTopOf="parent"
 
-                tools:text="Titulo"
+                tools:text="@string/title"
 
                 android:textStyle="bold"
         />
@@ -41,7 +41,7 @@
 
                 app:layout_constraintTop_toBottomOf="@id/post_title"
 
-                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit nisl nec vulputate vestibulum. Pellentesque luctus finibus purus. Praesent ut ante luctus, ullamcorper felis ut, bibendum justo. Praesent facilisis nunc lacinia laoreet mattis. Integer nulla nibh, cursus non vehicula at, consectetur tincidunt nunc. Vestibulum fringilla, leo ut tempus iaculis, metus ante gravida libero, sit amet condimentum velit arcu at eros. Proin nec turpis sed enim consectetur accumsan. Integer posuere enim ut dapibus consequat. Nunc nec justo arcu. Cras tristique vehicula accumsan. Phasellus aliquam efficitur magna sed consequat. Aliquam pharetra lacus nec eleifend dapibus. Aliquam auctor, libero ut fermentum lacinia, est sem facilisis dolor, id molestie velit sapien nec sem. Phasellus quis aliquam est."
+                tools:text="@string/lorem_ipsum"
         />
 
         <android.support.v7.widget.RecyclerView
@@ -52,7 +52,7 @@
 
                 app:layout_constraintTop_toBottomOf="@id/post_content"
 
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_items"
         />
 
         <TextView
@@ -64,11 +64,11 @@
                 android:text="@string/error_message"
 
                 android:gravity="center"
-                android:padding="50dp"
+                android:padding="@dimen/error_padding_large"
 
                 app:layout_constraintTop_toBottomOf="@id/post_content"
 
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_items"
 
                 android:visibility="gone"
 
@@ -81,25 +81,25 @@
                 android:layout_height="wrap_content"
 
                 app:layout_constraintTop_toBottomOf="@id/comments_list"
-                android:hint="Introduce aquí tu comentario..."
+                android:hint="@string/comment_hint"
 
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_items"
         />
 
         <Button
                 android:id="@+id/send_comment_btn"
 
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
-                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintWidth_percent="@fraction/button_send_percentage_width"
 
-                android:text="Enviar"
+                android:text="@string/send"
 
                 app:layout_constraintTop_toBottomOf="@id/new_comment_input"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
 
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_items"
         />
 
     </android.support.constraint.ConstraintLayout>
