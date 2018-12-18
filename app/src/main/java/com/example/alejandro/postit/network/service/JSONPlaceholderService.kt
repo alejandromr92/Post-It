@@ -4,9 +4,7 @@ import com.example.alejandro.postit.network.Constants
 import com.example.alejandro.postit.network.model.dto.CommentDto
 import com.example.alejandro.postit.network.model.dto.PostDto
 import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface JSONPlaceholderService {
 
@@ -21,6 +19,6 @@ interface JSONPlaceholderService {
 
     @POST(Endpoints.COMMENTS)
     fun postComment(
-        comment: CommentDto
-    ): Single<Unit>
+        @Body comment: CommentDto
+    ): Single<CommentDto>
 }

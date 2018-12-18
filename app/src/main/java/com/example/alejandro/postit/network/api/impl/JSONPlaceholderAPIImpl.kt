@@ -22,7 +22,7 @@ class JSONPlaceholderAPIImpl: JSONPlaceholderAPI {
         service.getComments(postId).map { CommentMapper.map(it) }
 
 
-    override fun postComment(comment: CommentDto): Single<Unit> =
-        service.postComment(comment)
+    override fun postComment(comment: CommentDto): Single<Comment> =
+        service.postComment(comment).map { CommentMapper.map(it) }
 
 }

@@ -20,6 +20,7 @@ abstract class PostMapper {
         private fun map(dto: PostDto): Post {
             val result = Post()
 
+            result.id = dto.id
             result.title = dto.title
             result.content = dto.body
 

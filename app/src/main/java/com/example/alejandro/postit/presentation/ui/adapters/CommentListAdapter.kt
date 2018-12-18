@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.item_comment.view.*
 class CommentListAdapter(private val items: List<Comment>): RecyclerView.Adapter<CommentHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentHolder =
-        CommentHolder(parent.inflate(R.layout.item_post))
+        CommentHolder(parent.inflate(R.layout.item_comment))
 
     override fun getItemCount(): Int = items.size
 

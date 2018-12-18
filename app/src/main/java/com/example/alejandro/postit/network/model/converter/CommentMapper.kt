@@ -20,6 +20,7 @@ abstract class CommentMapper {
         fun mapToDto(comment: Comment): CommentDto {
             val dto = CommentDto()
 
+            dto.postId = comment.postId
             dto.email = comment.author
             dto.body = comment.comment
 
@@ -28,9 +29,10 @@ abstract class CommentMapper {
         }
 
 
-        private fun map(dto: CommentDto): Comment {
+        fun map(dto: CommentDto): Comment {
             val result = Comment()
 
+            result.postId = dto.postId
             result.author = dto.email
             result.comment = dto.body
 

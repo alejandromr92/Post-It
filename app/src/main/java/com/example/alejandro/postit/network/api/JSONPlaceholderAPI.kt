@@ -8,5 +8,5 @@ import io.reactivex.Single
 interface JSONPlaceholderAPI {
     fun getPosts(): Single<List<Post>>
     fun getComments(postId: Int): Single<List<Comment>>
-    fun postComment(comment: CommentDto): Single<Unit>
+    fun postComment(comment: CommentDto): Single<Comment>
 }
